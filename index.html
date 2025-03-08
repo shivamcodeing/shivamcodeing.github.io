@@ -7,21 +7,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Existing styles... */
-
-        /* Additional styles */
+        /* Global Styles */
         body {
             background-color: #f8f9fa;
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
         }
-        
+
+        /* Navigation Bar */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
+            background-color: white;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
 
         nav h1 {
@@ -51,10 +56,44 @@
             color: #667eea;
         }
 
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                text-align: center;
+                margin: 0;
+                padding: 1rem;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #fff;
-            padding: 100px 0;
+            padding: 120px 0;
             text-align: center;
         }
 
@@ -86,6 +125,13 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
+        /* Content Sections */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
         .section-title {
             text-align: center;
             margin-bottom: 3rem;
@@ -113,144 +159,35 @@
             color: #667eea;
         }
 
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .project {
-            background-color: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .project:hover {
-            transform: translateY(-5px);
-        }
-
-        .project img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .project-info {
-            padding: 1.5rem;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        .social-links a {
-            margin: 0 1rem;
-            font-size: 1.5rem;
-            color: #667eea;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #764ba2;
-        }
-
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        textarea {
-            height: 150px;
-        }
-
-        /* Media Queries for Responsiveness */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            nav ul {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            nav ul li {
-                margin: 0.5rem 0;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-
-            .skills {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .projects {
-                grid-template-columns: 1fr; /* Stack projects on smaller screens */
-            }
-
-            .project img {
-                height: 150px; /* Adjust image height for smaller screens */
-            }
-        }
-
-        @media (max-width: 480px) {
-            nav h1 {
-                font-size: 1.2rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .btn {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-
-            .social-links a {
-                font-size: 1.2rem;
-            }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #667eea;
+            color: white;
+            margin-top: 3rem;
         }
     </style>
 </head>
 <body>
+
+    <!-- Navigation -->
     <header>
-        <nav class="container">
+        <nav>
             <h1>ShivamCoding</h1>
-            <ul>
+            <ul id="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#youtube">YouTube</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
         </nav>
     </header>
 
+    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
             <h1>Hi, I'm Shivam</h1>
@@ -259,125 +196,62 @@
         </div>
     </section>
 
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <img src="path_to_your_profile_image.jpg" alt="Shivam" style="border-radius: 50%; width: 200px; height: 200px; object-fit: cover; margin: 0 auto 2rem; display: block;">
-            <p>Brief bio about Shivam goes here...</p>
-            <h3 class="section-title">Skills</h3>
-            <div class="skills">
-                <div class="skill">
-                    <i class="fab fa-html5"></i>
-                    <p>HTML5</p>
-                </div>
-                <div class="skill">
-                    <i class="fab fa-css3-alt"></i>
-                    <p>CSS3</p>
-                </div>
-                <div class="skill">
-                    <i class="fab fa-js"></i>
-                    <p>JavaScript</p>
-                </div>
-                <div class="skill">
-                    <i class="fab fa-react"></i>
-                    <p>React</p>
-                </div>
-                <div class="skill">
-                    <i class="fab fa-node"></i>
-                    <p>Node.js</p>
-                </div>
+    <!-- About Section -->
+    <section id="about" class="container">
+        <h2 class="section-title">About Me</h2>
+        <p>Brief bio about Shivam goes here...</p>
+        <h3 class="section-title">Skills</h3>
+        <div class="skills">
+            <div class="skill">
+                <i class="fab fa-html5"></i>
+                <p>HTML5</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-css3-alt"></i>
+                <p>CSS3</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-js"></i>
+                <p>JavaScript</p>
             </div>
         </div>
     </section>
 
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title">My Projects</h2>
-            <div class="projects">
-                <div class="project">
-                    <img src="path_to_project_image.jpg" alt="Project 1">
-                    <div class="project-info">
-                        <h3>Project 1</h3>
-                        <p>Brief description of the project...</p>
-                        <a href="#" class="btn">View Project</a>
-                    </div>
-                </div>
-                <!-- Add more project divs as needed -->
-            </div>
-        </div>
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <h2 class="section-title">Get in Touch</h2>
+        <form>
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
     </section>
 
-    <section id="youtube">
-        <div class="container">
-            <h2 class="section-title">YouTube Channel</h2>
-            <div style="text-align: center;">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
-            <form>
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-    </section>
-
+    <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2025 ShivamCoding. All rights reserved.</p>
-        </div>
+        <p>&copy; 2025 ShivamCoding. All rights reserved.</p>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
     <script>
+        // Toggle mobile menu
+        const mobileMenu = document.getElementById("mobile-menu");
+        const navMenu = document.getElementById("nav-menu");
+
+        mobileMenu.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+        });
+
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener("click", function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+                document.querySelector(this.getAttribute("href")).scrollIntoView({
+                    behavior: "smooth"
                 });
             });
         });
-
-        // GSAP animations
-        gsap.from('.hero h1', {opacity: 0, y: 50, duration: 1, delay: 0.5});
-        gsap.from('.hero p', {opacity: 0, y: 50, duration: 1, delay: 0.7});
-        gsap.from('.hero .btn', {opacity: 0, y: 50, duration: 1, delay: 0.9});
-
-        gsap.from('.skill', {
-            opacity: 0, 
-            y: 50, 
-            duration: 0.5, 
-            stagger: 0.2,
-            scrollTrigger: {
-                trigger: '.skills',
-                start: 'top 80%'
-            }
-        });
-
-        gsap.from('.project', {
-            opacity: 0, 
-            y: 50, 
-            duration: 0.5, 
-            stagger: 0.2,
-            scrollTrigger: {
-                trigger: '.projects',
-                start: 'top 80%'
-            }
-        });
     </script>
+
 </body>
 </html>
