@@ -1,257 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShivamCoding - Programmer, Web Developer, YouTuber</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Global Styles */
-        body {
-            background-color: #f8f9fa;
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShivamCoding - Home</title>
 
-        /* Navigation Bar */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            background-color: white;
-            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-        nav h1 {
-            font-size: 1.5rem;
-            color: #667eea;
-        }
-
-        nav ul {
-            display: flex;
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li {
-            margin-left: 2rem;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: #667eea;
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                background-color: white;
-                box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-            }
-
-            nav ul.active {
-                display: flex;
-            }
-
-            nav ul li {
-                text-align: center;
-                margin: 0;
-                padding: 1rem;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #fff;
-            padding: 120px 0;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: #fff;
-            color: #667eea;
-            text-decoration: none;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            font-weight: bold;
-        }
-
-        .btn:hover {
-            background-color: #667eea;
-            color: #fff;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Content Sections */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .skills {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-
-        .skill {
-            text-align: center;
-            margin: 1rem;
-            transition: transform 0.3s ease;
-        }
-
-        .skill:hover {
-            transform: translateY(-5px);
-        }
-
-        .skill i {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            color: #667eea;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background-color: #667eea;
-            color: white;
-            margin-top: 3rem;
-        }
-    </style>
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <!-- Navigation -->
-    <header>
-        <nav>
-            <h1>ShivamCoding</h1>
-            <ul id="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="menu-toggle" id="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
-    </header>
+  <!-- Navbar -->
+  <!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm animate__animated animate__fadeInDown">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">ShivamCoding</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#home-section">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>Hi, I'm Shivam</h1>
-            <p>Programmer. Web Developer. YouTuber.</p>
-            <a href="#projects" class="btn">Explore my work</a>
+<!-- Home Section -->
+<section id="home-section" class="home-section d-flex align-items-center justify-content-center text-center">
+  <div class="container text-white">
+    <h1 class="display-4 fw-bold">Welcome to ShivamCoding</h1>
+    <p class="lead">Building Modern Web & Game Experiences</p>
+    <a href="#portfolio" class="btn btn-light btn-lg mt-3">View Portfolio</a>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about-section py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Image Column -->
+      <div class="col-md-6 mb-4 mb-md-0">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8H7-2lbpEsqj39V2h9GAXGuvjafHSxIMGCQ&s" alt="About Image" class="img-fluid rounded shadow">
+      </div>
+
+      <!-- Text Column -->
+      <div class="col-md-6">
+        <h2 class="fw-bold text-primary">About ShivamCoding</h2>
+        <p class="text-muted mt-3">
+          ShivamCoding is dedicated to crafting high-quality websites, modern UI/UX designs, and immersive game development experiences.
+          With a passion for code and creativity, we aim to deliver solutions that are not just functional but beautiful.
+        </p>
+        <p class="text-muted">
+          Whether it's a professional website, a creative portfolio, or an interactive game, we bring your ideas to life with precision and flair.
+        </p>
+        <a href="#contact" class="btn btn-primary mt-3">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="portfolio-section py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold text-primary">My Portfolio</h2>
+      <p class="text-muted">Here are some of my recent projects in web and game development.</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Portfolio Card 1 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 portfolio-card">
+          <img src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="Project 1">
+          <div class="card-body">
+            <h5 class="card-title text-primary">Web Design Project</h5>
+            <p class="card-text text-muted">A modern and responsive website built with HTML, CSS, and Bootstrap.</p>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- About Section -->
-    <section id="about" class="container">
-        <h2 class="section-title">About Me</h2>
-        <p>Brief bio about Shivam goes here...</p>
-        <h3 class="section-title">Skills</h3>
-        <div class="skills">
-            <div class="skill">
-                <i class="fab fa-html5"></i>
-                <p>HTML5</p>
-            </div>
-            <div class="skill">
-                <i class="fab fa-css3-alt"></i>
-                <p>CSS3</p>
-            </div>
-            <div class="skill">
-                <i class="fab fa-js"></i>
-                <p>JavaScript</p>
-            </div>
+      <!-- Portfolio Card 2 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 portfolio-card">
+          <img src="https://images.pexels.com/photos/7562050/pexels-photo-7562050.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" alt="Project 2">
+          <div class="card-body">
+            <h5 class="card-title text-primary">3D Game</h5>
+            <p class="card-text text-muted">A Godot-based 3D off-road car game with realistic physics and terrain.</p>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="container">
-        <h2 class="section-title">Get in Touch</h2>
+      <!-- Portfolio Card 3 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 portfolio-card">
+          <img src="https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="Project 3">
+          <div class="card-body">
+            <h5 class="card-title text-primary">Mobile App UI</h5>
+            <p class="card-text text-muted">A sleek mobile app interface designed with Figma and implemented using Flutter.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold text-primary">Contact Me</h2>
+      <p class="text-muted">Have a project in mind or just want to say hello?</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-8">
         <form>
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn">Send Message</button>
+          <div class="mb-3">
+            <label for="name" class="form-label">Your Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Your Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Your Message</label>
+            <textarea class="form-control" id="message" rows="5" placeholder="Type your message here..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
         </form>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 ShivamCoding. All rights reserved.</p>
-    </footer>
+<!-- Footer -->
+<footer class="bg-primary text-white text-center py-4">
+  <div class="container">
+    <p class="mb-1">&copy; 2025 ShivamCoding. All rights reserved.</p>
+    <small>Built with HTML, CSS, JavaScript & Bootstrap</small>
+    <div class="mt-3">
+      <a href="https://www.youtube.com/shivamcoding" class="text-white mx-3" target="_blank">
+        <i class="fab fa-youtube fa-2x"></i>
+      </a>
+      <a href="https://www.instagram.com/shivendra.raikwar" class="text-white mx-3" target="_blank">
+        <i class="fab fa-instagram fa-2x"></i>
+      </a>
+    </div>
+  </div>
+</footer>
 
-    <script>
-        // Toggle mobile menu
-        const mobileMenu = document.getElementById("mobile-menu");
-        const navMenu = document.getElementById("nav-menu");
 
-        mobileMenu.addEventListener("click", () => {
-            navMenu.classList.toggle("active");
-        });
+  <!-- Bootstrap JS + Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener("click", function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute("href")).scrollIntoView({
-                    behavior: "smooth"
-                });
-            });
-        });
-    </script>
-
+  <!-- External JS -->
+  <script src="script.js"></script>
 </body>
 </html>
