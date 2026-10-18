@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#141713" />
+  <meta name="description" content="Forge Athletics is a concept fitness club for people who show up and put in the work." />
+  <title>Forge Athletics — Built by showing up</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg: #141713; --panel: #1d211b; --ink: #f3f4ee; --muted: #a1a69a; --lime: #d4f45d; --line: #34392f; --display: "Barlow Condensed", Impact, sans-serif; --body: "Manrope", sans-serif; --mono: "DM Mono", monospace; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 78px; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .shell { width: min(1240px, calc(100% - 72px)); margin: auto; }
+    .site-nav { position: absolute; z-index: 5; top: 0; right: 0; left: 0; border-bottom: 1px solid rgb(255 255 255 / 15%); }
+    .nav-inner { display: flex; min-height: 82px; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-size: 21px; font-weight: 800; letter-spacing: 0; }
+    .brand-mark { display: grid; width: 34px; aspect-ratio: 1; place-items: center; background: var(--lime); color: var(--bg); font-family: var(--mono); font-size: 12px; }
+    .nav-links { display: flex; align-items: center; gap: 29px; color: #e1e4dc; font-size: 10px; font-weight: 700; }
+    .nav-links a:not(.nav-cta):hover { color: var(--lime); }
+    .nav-cta { padding: 12px 15px; background: var(--lime); color: var(--bg); }
+    .nav-toggle { display: none; }
+    .hero { position: relative; display: flex; min-height: min(780px, 100svh); align-items: center; overflow: hidden; isolation: isolate; }
+    .hero::before { position: absolute; z-index: -2; inset: 0; background: url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2000&q=90") center 46% / cover; content: ""; animation: hero-zoom 18s ease-in-out infinite alternate; }
+    .hero::after { position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, rgb(12 15 12 / 94%) 0%, rgb(12 15 12 / 74%) 42%, rgb(12 15 12 / 15%) 100%), linear-gradient(0deg, rgb(12 15 12 / 72%), transparent 35%); content: ""; }
+    .hero-copy { padding-top: 78px; animation: enter 750ms both; }
+    .eyebrow { color: var(--lime); font-family: var(--mono); font-size: 9px; letter-spacing: 0; text-transform: uppercase; }
+    .hero h1 { max-width: 750px; margin: 24px 0 18px; font-family: var(--display); font-size: clamp(72px, 11.5vw, 156px); font-weight: 900; letter-spacing: 0; line-height: .79; text-transform: uppercase; }
+    .hero h1 span { color: var(--lime); }
+    .hero-copy > p:not(.eyebrow) { max-width: 390px; margin-bottom: 27px; color: #d2d6cd; font-size: 13px; line-height: 1.8; }
+    .button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 20px; padding: 0 17px; background: var(--lime); color: var(--bg); font-size: 10px; font-weight: 800; transition: transform 180ms ease, background 180ms ease; }
+    .button:hover { transform: translateY(-3px); background: white; }
+    .hero-bottom { position: absolute; right: 0; bottom: 26px; left: 0; display: flex; align-items: center; justify-content: space-between; color: #c0c6bb; font-family: var(--mono); font-size: 8px; }
+    .hero-bottom span:last-child { color: var(--lime); }
+    .ticker { overflow: hidden; padding-block: 15px; background: var(--lime); color: var(--bg); }
+    .ticker-track { display: flex; width: max-content; gap: 27px; animation: ticker 24s linear infinite; font-family: var(--display); font-size: 17px; font-weight: 800; letter-spacing: 0; text-transform: uppercase; }
+    .ticker-track span { white-space: nowrap; }
+    .ticker-track i { font-style: normal; }
+    section.content { padding-block: 100px; }
+    .section-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 30px; margin-bottom: 43px; }
+    .section-top h2 { max-width: 620px; margin: 0; font-family: var(--display); font-size: clamp(47px, 7vw, 86px); font-weight: 800; line-height: .9; text-transform: uppercase; }
+    .section-top h2 span { color: var(--lime); }
+    .section-top > p { max-width: 280px; margin: 3px 0 0; color: var(--muted); font-size: 11px; line-height: 1.9; }
+    .programs { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+    .program { min-height: 230px; padding: 22px 24px 20px 0; border-bottom: 1px solid var(--line); }
+    .program + .program { padding-left: 24px; border-left: 1px solid var(--line); }
+    .program-number { color: var(--lime); font-family: var(--mono); font-size: 9px; }
+    .program h3 { margin: 45px 0 9px; font-family: var(--display); font-size: 30px; font-weight: 700; text-transform: uppercase; }
+    .program p { max-width: 280px; margin: 0; color: var(--muted); font-size: 10px; line-height: 1.8; }
+    .manifesto { position: relative; display: grid; min-height: 380px; grid-template-columns: 1.3fr .7fr; align-items: center; gap: 50px; overflow: hidden; padding: 55px; background: var(--lime); color: var(--bg); }
+    .manifesto::after { position: absolute; right: -80px; bottom: -270px; width: 470px; aspect-ratio: 1; border: 1px solid rgb(20 23 19 / 18%); border-radius: 50%; box-shadow: 0 0 0 30px rgb(20 23 19 / 5%), 0 0 0 60px rgb(20 23 19 / 5%), 0 0 0 90px rgb(20 23 19 / 5%); content: ""; }
+    .manifesto h2 { position: relative; z-index: 1; margin: 0; font-family: var(--display); font-size: clamp(48px, 7vw, 91px); line-height: .86; text-transform: uppercase; }
+    .manifesto p { position: relative; z-index: 1; max-width: 280px; color: #3b4629; font-size: 11px; line-height: 1.9; }
+    .manifesto p strong { display: block; margin-top: 20px; color: var(--bg); font-family: var(--mono); font-size: 9px; font-weight: 500; text-transform: uppercase; }
+    .membership { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .plan { display: flex; min-height: 235px; flex-direction: column; justify-content: space-between; padding: 23px; border: 1px solid var(--line); background: var(--panel); }
+    .plan.featured { border-color: var(--lime); }
+    .plan > span { color: var(--lime); font-family: var(--mono); font-size: 9px; }
+    .plan h3 { margin: 30px 0 5px; font-family: var(--display); font-size: 31px; text-transform: uppercase; }
+    .plan p { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.8; }
+    .plan a { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--line); color: var(--lime); font-size: 10px; font-weight: 800; }
+    .footer { padding-block: 25px; border-top: 1px solid var(--line); color: var(--muted); font-family: var(--mono); font-size: 8px; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .footer a:hover { color: var(--lime); }
+    .rise { animation: enter 700ms both; }
+    @keyframes enter { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes hero-zoom { to { transform: scale(1.07); } }
+    @keyframes ticker { to { transform: translateX(-50%); } }
+    @media (max-width: 760px) {
+      .shell { width: calc(100% - 40px); }
+      .nav-inner { min-height: 70px; }
+      .nav-toggle { display: grid; width: 42px; height: 42px; place-content: center; gap: 5px; border: 1px solid rgb(255 255 255 / 25%); background: transparent; }
+      .nav-toggle span { width: 18px; height: 1px; background: white; }
+      .nav-links { position: absolute; top: 69px; right: 0; left: 0; display: none; align-items: stretch; gap: 0; padding: 8px 20px 18px; background: var(--bg); }
+      .nav-links.open { display: flex; flex-direction: column; }
+      .nav-links a:not(.nav-cta) { padding: 13px 0; border-bottom: 1px solid var(--line); }
+      .nav-cta { margin-top: 12px; text-align: center; }
+      .hero { min-height: 720px; }
+      .hero::before { background-position: 58% center; }
+      .hero::after { background: linear-gradient(90deg, rgb(12 15 12 / 85%), rgb(12 15 12 / 38%)), linear-gradient(0deg, rgb(12 15 12 / 70%), transparent 55%); }
+      .hero h1 { font-size: clamp(74px, 17vw, 120px); }
+      .hero-bottom { align-items: flex-start; flex-direction: column; gap: 8px; }
+      section.content { padding-block: 73px; }
+      .section-top { flex-direction: column; gap: 17px; }
+      .programs { grid-template-columns: 1fr; }
+      .program { min-height: 180px; padding: 20px 0; }
+      .program + .program { padding-left: 0; border-left: 0; }
+      .program h3 { margin-top: 31px; }
+      .manifesto { grid-template-columns: 1fr; gap: 22px; padding: 32px 25px; }
+      .manifesto p { margin-bottom: 0; }
+      .membership { grid-template-columns: 1fr; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <header class="site-nav">
+    <nav class="shell nav-inner" aria-label="Main navigation">
+      <a class="brand" href="#top"><span class="brand-mark">F/</span> FORGE ATHLETICS</a>
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links"><span></span><span></span></button>
+      <div class="nav-links" id="nav-links"><a href="#training">Training</a><a href="#philosophy">Our mindset</a><a href="#membership">Membership</a><a class="nav-cta" href="#membership">Start moving ↗</a></div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="top">
+      <div class="shell hero-copy">
+        <p class="eyebrow">INDEPENDENT STRENGTH CLUB · EST. 2018</p>
+        <h1>Built by<br /><span>showing up.</span></h1>
+        <p>No shortcuts. No spectators. Just good coaching, honest effort, and a room full of people getting stronger together.</p>
+        <a class="button" href="#membership">Find your next rep <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="shell hero-bottom"><span>01 — STRENGTH / CONDITIONING / COMMUNITY</span><span>SCROLL TO EXPLORE ↓</span></div>
+    </section>
+    <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>Train with intent</span><i>✳</i><span>Move with purpose</span><i>✳</i><span>Leave stronger</span><i>✳</i><span>Train with intent</span><i>✳</i><span>Move with purpose</span><i>✳</i><span>Leave stronger</span><i>✳</i></div></div>
+    <section class="content shell" id="training">
+      <div class="section-top"><div><p class="eyebrow">01 / THE WORK</p><h2>Train for the<br /><span style="color:var(--lime)">whole you.</span></h2></div><p>Good training meets you where you are, then gives you somewhere to go. Find the focus that fits your life.</p></div>
+      <div class="programs">
+        <article class="program"><span class="program-number">01 — BUILD</span><h3>Strength room</h3><p>Progressive strength training with expert coaching, made personal to your pace.</p></article>
+        <article class="program"><span class="program-number">02 — MOVE</span><h3>Conditioning</h3><p>Smart, adaptable sessions that build energy and keep you moving with confidence.</p></article>
+        <article class="program"><span class="program-number">03 — BELONG</span><h3>Small group</h3><p>All the attention of a coach, all the energy of a team. Better, together.</p></article>
+      </div>
+    </section>
+    <section class="shell" id="philosophy"><div class="manifesto"><h2>Progress<br />is personal.<br />Show up anyway.</h2><p>We don't do before-and-after. We do today, and the little bit stronger you leave than when you walked in.<strong>— THE FORGE WAY</strong></p></div></section>
+    <section class="content shell" id="membership">
+      <div class="section-top"><div><p class="eyebrow">02 / YOUR NEXT CHAPTER</p><h2>Find your<br /><span style="color:var(--lime)">starting point.</span></h2></div><p>Come as you are. We'll help you figure out the rest. Every first visit starts with a real conversation.</p></div>
+      <div class="membership">
+        <article class="plan"><span>THE FIRST STEP</span><div><h3>Try a week</h3><p>Meet the coaches, explore the space, and find your rhythm.</p></div><a href="mailto:hello@forgeathletics.example?subject=Forge%20trial%20week">Ask about a trial <span>↗</span></a></article>
+        <article class="plan featured"><span>THE LONG GAME</span><div><h3>Make it yours</h3><p>Flexible membership with coaching built around the way you train.</p></div><a href="mailto:hello@forgeathletics.example?subject=Forge%20membership">Talk memberships <span>↗</span></a></article>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="shell footer-inner"><span>FORGE ATHLETICS · A WEBSITE CONCEPT</span><a href="../../index.html#work">← Back to ShivamCoding projects</a><span>MAKE YOURSELF PROUD.</span></div></footer>
+  <script>
+    const toggle = document.querySelector(".nav-toggle");
+    const links = document.querySelector(".nav-links");
+    toggle.addEventListener("click", () => {
+      const open = toggle.getAttribute("aria-expanded") !== "true";
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+      links.classList.toggle("open", open);
+    });
+    links.addEventListener("click", (event) => {
+      if (event.target.closest("a")) {
+        toggle.setAttribute("aria-expanded", "false");
+        links.classList.remove("open");
+      }
+    });
+  </script>
+</body>
+</html>
