@@ -592,11 +592,16 @@ h1, h2, h3, p { margin-top: 0; }
 .contact-copy h2 span { color: var(--lime); }
 .contact-copy > p:last-child { max-width: 370px; margin-bottom: 0; color: #e0e7dd; font-size: 12px; line-height: 1.85; }
 .contact-options { border-top: 1px solid rgb(255 255 255 / 30%); }
-.contact-option { display: grid; min-height: 75px; grid-template-columns: 80px 1fr 20px; align-items: center; gap: 12px; border-bottom: 1px solid rgb(255 255 255 / 30%); transition: padding 180ms ease, background 180ms ease; }
-.contact-option:hover { padding-inline: 10px; background: rgb(255 255 255 / 7%); }
-.contact-label { color: #d4dfd2; font-family: var(--mono); font-size: 8px; }
-.contact-option strong { font-size: 12px; font-weight: 700; overflow-wrap: anywhere; }
+.contact-option { display: grid; min-height: 75px; grid-template-columns: 54px minmax(0, 1fr) 20px; align-items: center; gap: 12px; border-bottom: 1px solid rgb(255 255 255 / 30%); transition: transform 180ms ease, padding 180ms ease, background 180ms ease; }
+.contact-option:hover { transform: translateX(2px); padding-inline: 10px; background: rgb(255 255 255 / 7%); }
+.contact-icon { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid rgb(255 255 255 / 20%); border-radius: 14px; background: rgb(255 255 255 / 5%); box-shadow: inset 0 1px 0 rgb(255 255 255 / 6%); transition: transform 180ms ease, border-color 180ms ease, background 180ms ease; }
+.contact-icon svg { width: 18px; height: 18px; fill: none; stroke: var(--lime); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.contact-icon svg circle[fill="currentColor"] { fill: var(--lime); stroke: none; }
+.contact-copy-text { display: flex; flex-direction: column; gap: 4px; }
+.contact-label { display: block; color: #d4dfd2; font-family: var(--mono); font-size: 8px; }
+.contact-option strong { display: block; font-size: 12px; font-weight: 700; overflow-wrap: anywhere; }
 .contact-arrow { color: var(--lime); font-size: 17px; text-align: right; transition: transform 180ms ease; }
+.contact-option:hover .contact-icon { transform: translateY(-2px) scale(1.02); border-color: rgb(216 238 138 / 55%); background: rgb(216 238 138 / 10%); }
 .contact-option:hover .contact-arrow { transform: translate(3px, -3px); }
 
 .site-footer { background: var(--ink); color: #d8ddd6; }
@@ -708,7 +713,9 @@ h1, h2, h3, p { margin-top: 0; }
   .journal-tile { min-height: 280px; }
   .contact-inner { grid-template-columns: 1fr; gap: 34px; padding-block: 71px 66px; }
   .contact-copy h2 { font-size: clamp(46px, 11vw, 64px); }
-  .contact-option { min-height: 68px; grid-template-columns: 66px 1fr 18px; gap: 8px; }
+  .contact-option { min-height: 68px; grid-template-columns: 48px 1fr 18px; gap: 8px; }
+  .contact-icon { width: 36px; height: 36px; border-radius: 12px; }
+  .contact-icon svg { width: 16px; height: 16px; }
   .contact-option strong { font-size: 11px; }
   .footer-inner { grid-template-columns: 1fr auto; gap: 20px 12px; padding-block: 24px; }
   .footer-links { grid-column: 1 / -1; grid-row: 2; justify-content: space-between; gap: 10px; }
